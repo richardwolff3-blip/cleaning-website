@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louisiana Commercial Cleaning | Professional Facility Cleaning Services</title>
+    <meta name="description" content="Professional commercial cleaning services in Louisiana. Deep cleaning, retail cleaning, janitorial services, and more.">
+    <style>
+        :root {
+            --primary: #1f5c52;
+            --primary-light: #2a7a68;
+            --accent: #d4a574;
+            --text-dark: #1a1a1a;
+            --text-light: #f5f5f5;
+            --bg-light: #f9f7f4;
+            --bg-dark: #0a0a0a;
+            --border: #e0e0e0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --text-dark: #e8e8e8;
+                --text-light: #1a1a1a;
+                --bg-light: #1a1a1a;
+                --bg-dark: #0a0a0a;
+                --border: #333;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --text-dark: #e8e8e8;
+            --text-light: #1a1a1a;
+            --bg-light: #1a1a1a;
+            --bg-dark: #0a0a0a;
+            --border: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            border: none;
+            background: none;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        nav a.active {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.25rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .service-card {
+                background: #222;
+            }
+        }
+
+        :root[data-theme="dark"] .service-card {
+            background: #222;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .about-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .about-section h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .contact-form {
+                background: #222;
+            }
+        }
+
+        :root[data-theme="dark"] .contact-form {
+            background: #222;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: var(--primary-light);
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .success-message {
+            background: #4caf50;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🧹 Louisiana Commercial Cleaning</div>
+        <nav>
+            <a onclick="showPage('home')" class="nav-link active">Home</a>
+            <a onclick="showPage('services')" class="nav-link">Services</a>
+            <a onclick="showPage('about')" class="nav-link">About</a>
+            <a onclick="showPage('contact')" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <h1>Professional Commercial Cleaning</h1>
+            <p>Your trusted partner for spotless facilities across Louisiana</p>
+        </div>
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Deep Cleaning</h3>
+                    <p>Comprehensive cleaning services that go beyond the surface. We handle every corner of your facility.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Retail Spaces</h3>
+                    <p>Keep your retail environment pristine and welcoming for customers with our specialized services.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Janitorial Services</h3>
+                    <p>Regular maintenance cleaning to keep your facilities clean and professional every single day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>01 / Deep Clean</h3>
+                    <p>Complete facility deep cleaning including floors, walls, fixtures, and hard-to-reach areas. Perfect for post-construction or seasonal refreshes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>02 / Retail Cleaning</h3>
+                    <p>Specialized cleaning for retail environments. We ensure your storefront looks professional and inviting at all times.</p>
+                </div>
+                <div class="service-card">
+                    <h3>03 / Janitorial</h3>
+                    <p>Ongoing daily or weekly janitorial services to maintain a clean, healthy workplace for your employees and clients.</p>
+                </div>
+                <div class="service-card">
+                    <h3>04 / Office Cleaning</h3>
+                    <p>Professional office cleaning services including desks, restrooms, break rooms, and common areas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>05 / Floor Care</h3>
+                    <p>Specialized floor cleaning and waxing for all surface types. From tile to hardwood to carpet care.</p>
+                </div>
+                <div class="service-card">
+                    <h3>06 / Custom Services</h3>
+                    <p>We offer customized cleaning solutions tailored to your specific business needs and budget.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-section">
+                <h3>Who We Are</h3>
+                <p>Louisiana Commercial Cleaning is a professional cleaning company dedicated to providing exceptional service to businesses across Louisiana. With over a decade of experience, we've built our reputation on reliability, quality, and customer satisfaction.</p>
+            </div>
+            <div class="about-section">
+                <h3>Our Mission</h3>
+                <p>Our mission is simple: to deliver superior cleaning services that help your business shine. We believe a clean facility reflects a professional image and creates a healthier environment for your employees and clients.</p>
+            </div>
+            <div class="about-section">
+                <h3>Why Choose Us?</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✓ Experienced and trained cleaning professionals</li>
+                    <li>✓ Eco-friendly cleaning products</li>
+                    <li>✓ Flexible scheduling to fit your needs</li>
+                    <li>✓ Competitive pricing</li>
+                    <li>✓ 100% satisfaction guarantee</li>
+                </ul>
+            </div>
+            <div class="about-section">
+                <h3>Hours of Operation</h3>
+                <p>Mon–Fri: 9:00 AM – 5:00 PM<br>Sat: 10:00 AM – 3:00 PM<br>Sun: By appointment only</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    Thank you! Your message has been sent successfully.
+                </div>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div style="margin-top: 2rem; text-align: center; color: var(--text-dark);">
+                    <p><strong>Direct Contact:</strong></p>
+                    <p>Phone: 225-281-8949</p>
+                    <p>Email: info@louisianacommercialclean.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Louisiana Commercial Cleaning. All rights reserved.</p>
+        <p>Serving Louisiana with professional cleaning services</p>
+    </footer>
+
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageName).classList.add('active');
+
+            // Update nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                message: formData.get('message')
+            };
+
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+
+            // Reset form
+            event.target.reset();
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+
+            // Log the data (for debugging)
+            console.log('Form submitted:', data);
+
+            // Optional: Send to a backend service like Formspree
+            // Replace YOUR_ID with your actual Formspree ID
+            // fetch('https://formspree.io/f/YOUR_ID', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // });
+        }
+    </script>
+</body>
+</html>
